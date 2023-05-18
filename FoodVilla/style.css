@@ -1,0 +1,122 @@
+#four {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(126, 124, 124);
+    color: white;
+    font-weight: 600;
+    padding: 5px 20px;
+
+
+
+}
+
+.search-div{
+    display: flex;
+    justify-content: center;
+    margin: 10px 20px;
+}
+
+.search-input{
+padding: 2px 10px;
+    
+}
+
+.search-button {
+padding: 2px 5px;
+margin-left: 4px;
+color: white;
+font-weight: 700;
+background-color: rgb(25, 25, 41);
+}
+
+
+.list-items ul {
+    display: flex;
+justify-content: space-between;
+list-style: none;
+}
+
+.list-items ul li{
+    padding: 4px;
+}
+
+
+.card {
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: -1px 5px 10px 5px rgba(42, 42, 42, 0.2);
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+
+  .card > img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .card h2 {
+    font-size: medium;
+    font-family: sans-serif;
+    padding-bottom: 4px;
+    color: rgb(49, 47, 47);
+    margin-bottom: 10px;
+    
+
+  }
+
+  .card h3 {
+    font-size: 16px;
+    padding-bottom: 4px;
+    color: rgb(49, 47, 47);
+    font-family: sans-serif;
+  }
+
+  .card h4 {
+    font-size: 16px;
+    padding-top: 5px;
+  }
+
+
+
+
+.restaurant-list {
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+  }
+
+
+
+  .shimmer-card {
+    margin-top: 60px;
+    height: 250px;
+    width: 200px;
+    background: rgb(170, 169, 169);
+    margin-left: 20px;
+  }
