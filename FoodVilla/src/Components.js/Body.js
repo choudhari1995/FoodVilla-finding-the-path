@@ -3,15 +3,8 @@ import ReastaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
- function FilterData(restaurants, searchInput) {
-         const filterData = restaurants.filter((restaurant) => {
-            return restaurant?.data?.name?.toLowerCase().includes(searchInput.toLowerCase());
-          });
-          
-          console.log("filteredData", filterData);
-          return filterData;
-};
+import { FilterData } from "./utility/Helper";
+ import useOnline from "./utility/useOnline";
 
 
 
@@ -39,17 +32,22 @@ async function getRestaurants() {
 
 }
 
+ let isOnline = useOnline();
+ if (!isOnline) {
+    return( <h1>"🔴"you are offline, please check your internet connection "‼⁉"</h1>)
+ }
+
     if(!allRestaurants) return null;
 
     return (allRestaurants?.length === 0) ? <Shimmer /> :(
         <>
-        <div className="search-div">
-            <input placeholder="search" className="search-input" value={searchInput} onChange={(e) => {
+        <div className="mt-40 mb-8  mr-6 flex justify-center">
+            <input placeholder="Search Here..." className="search-input pr-4 px-6 bg-gray-200 border outline-none" value={searchInput} onChange={(e) => {
                 setSearchInput(e.target.value)
             }} />
             
             
-            <button className="search-button"
+            <button className="search-button ml-4 text-black font-serif bg-yellow-400 p-3 rounded-lg"
             onClick={() => {
                const Data = FilterData(allRestaurants, searchInput)
                
@@ -58,10 +56,10 @@ async function getRestaurants() {
 
             }}>Search</button>
         </div>
-        <div className="restaurant-list">
+        <div className="flex flex-wrap justify-evenly gap-4 mb-20">
             
             {(filteredRestaurants.length=== 0) ? (<h1>no restaurant found</h1>) : filteredRestaurants.map((restaurant) => {return ( <Link
-          className="link-styles" to={"/restaurant/" + restaurant.data.id} key={restaurant.data.id}>
+          className="" to={"/restaurant/" + restaurant.data.id} key={restaurant.data.id}>
           <ReastaurantCard {...restaurant.data} key={restaurant.data.id} />
         </Link>
         )

@@ -10,7 +10,13 @@ import About from "./About";
 import Error from "./Error";
 import Contact from "./Contact";
 import RestaurantMenu from "./RestaurantMenu";
+import { lazy, Suspense } from "react";
+import Shimmer from "./Shimmer";
+// import Instamart from "./Instamart";
 
+
+
+const Instamart = lazy(() => import("./instamart"));
 
 
 
@@ -48,8 +54,13 @@ const appRouter = createBrowserRouter(
                     },
                     {
                         path: "/restaurant/:id",
-                        element: <RestaurantMenu/>,
-                        }
+                        element: <RestaurantMenu/>
+                        },
+                        {
+                            path: "/instamart", 
+                            element: <Suspense fallback={<Shimmer />}><Instamart />
+                            </Suspense>                         }
+                    
         ] 
         },
 
